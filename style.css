@@ -1,0 +1,960 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f3f3ef;
+    color: #111;
+    font-family: "DM Sans", Arial, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+
+/* =========================================
+   VARIÁVEIS
+========================================= */
+
+:root {
+    --black: #111111;
+    --yellow: #f3d600;
+    --yellow-light: #fff1a3;
+    --background: #f3f3ef;
+    --white: #fafaf7;
+    --gray: #777;
+    --border: #cfcfc9;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+    width: 100%;
+    min-height: 76px;
+
+    border-bottom: 1px solid var(--border);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5vw;
+
+    background: rgba(243, 243, 239, .94);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+
+    backdrop-filter: blur(10px);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-circle {
+    width: 38px;
+    height: 38px;
+
+    background: var(--black);
+    color: var(--yellow);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Space Mono", monospace;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.logo-text strong {
+    font-size: 12px;
+}
+
+.logo-text span {
+    font-family: "Space Mono", monospace;
+    font-size: 8px;
+    color: var(--gray);
+}
+
+
+/* =========================================
+   NAVEGAÇÃO
+========================================= */
+
+.navigation {
+    display: flex;
+    gap: 32px;
+
+    font-family: "Space Mono", monospace;
+    font-size: 10px;
+}
+
+.navigation a {
+    opacity: .5;
+    transition: .2s;
+}
+
+.navigation a:hover {
+    opacity: 1;
+}
+
+.navigation .nav-active {
+    opacity: 1;
+}
+
+.navigation .nav-active::after {
+    content: "";
+
+    display: block;
+
+    height: 2px;
+
+    background: var(--yellow);
+
+    margin-top: 5px;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 680px;
+
+    display: grid;
+
+    grid-template-columns: 1.4fr .6fr;
+
+    align-items: center;
+
+    gap: 80px;
+
+    padding: 90px 8vw;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.small-label {
+    font-family: "Space Mono", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: .08em;
+
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-size: clamp(65px, 9vw, 120px);
+
+    line-height: .84;
+
+    letter-spacing: -.07em;
+
+    font-weight: 700;
+}
+
+.hero h1 span {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 span::after {
+    content: "";
+
+    position: absolute;
+
+    height: 13px;
+
+    background: var(--yellow);
+
+    left: 2px;
+    right: 0;
+    bottom: 4px;
+
+    z-index: -1;
+}
+
+.hero-description {
+    max-width: 500px;
+
+    color: var(--gray);
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin-top: 35px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   BOTÃO PRINCIPAL
+========================================= */
+
+.main-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    background: var(--black);
+
+    color: white;
+
+    padding: 17px 20px;
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 10px;
+
+    transition: .25s;
+}
+
+.main-button:hover {
+    background: #333;
+
+    transform: translateY(-2px);
+}
+
+.main-button span {
+    color: var(--yellow);
+
+    font-size: 17px;
+}
+
+
+/* =========================================
+   CARD AMARELO
+========================================= */
+
+.hero-art {
+    display: flex;
+
+    justify-content: center;
+}
+
+.yellow-card {
+    width: 280px;
+
+    height: 380px;
+
+    background: var(--yellow);
+
+    border: 1px solid var(--black);
+
+    box-shadow: 15px 15px 0 var(--black);
+
+    padding: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    transition: .3s;
+}
+
+.yellow-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-number {
+    font-family: "Space Mono", monospace;
+
+    font-size: 10px;
+}
+
+.tiger {
+    font-size: 100px;
+
+    text-align: center;
+}
+
+.card-bottom {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.card-bottom strong {
+    font-family: "Space Mono", monospace;
+
+    font-size: 14px;
+}
+
+.card-bottom span {
+    font-family: "Space Mono", monospace;
+
+    font-size: 8px;
+}
+
+
+/* =========================================
+   IDENTIDADE
+========================================= */
+
+.quote-section {
+    display: grid;
+
+    grid-template-columns: .4fr 1fr;
+
+    gap: 40px;
+
+    padding: 100px 8vw;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.section-number {
+    font-family: "Space Mono", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: .08em;
+
+    color: #444;
+}
+
+.quote-section h2 {
+    font-size: clamp(45px, 6vw, 80px);
+
+    line-height: .95;
+
+    letter-spacing: -.06em;
+}
+
+.quote-section p {
+    max-width: 600px;
+
+    color: var(--gray);
+
+    line-height: 1.7;
+
+    font-size: 16px;
+
+    margin-top: 30px;
+}
+
+
+/* =========================================
+   HISTÓRIA
+========================================= */
+
+.history-section {
+    padding: 100px 8vw;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.history-content {
+    margin-top: 60px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+}
+
+.history-title span {
+    font-family: "Space Mono", monospace;
+
+    font-size: 12px;
+
+    background: var(--yellow);
+
+    padding: 6px 8px;
+}
+
+.history-title h2 {
+    margin-top: 25px;
+
+    font-size: clamp(55px, 7vw, 95px);
+
+    line-height: .85;
+
+    letter-spacing: -.07em;
+}
+
+.history-text {
+    padding-top: 20px;
+}
+
+.history-text p {
+    color: var(--gray);
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+
+    max-width: 550px;
+}
+
+.text-link {
+    font-family: "Space Mono", monospace;
+
+    font-size: 10px;
+
+    border-bottom: 2px solid var(--yellow);
+
+    padding-bottom: 5px;
+}
+
+
+/* =========================================
+   CLUBE
+========================================= */
+
+.players-section {
+    padding: 100px 8vw;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.players-content {
+    margin-top: 55px;
+}
+
+.section-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    gap: 40px;
+
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    font-size: clamp(50px, 6vw, 80px);
+
+    line-height: .85;
+
+    letter-spacing: -.06em;
+}
+
+.section-heading p {
+    max-width: 350px;
+
+    color: var(--gray);
+
+    line-height: 1.6;
+}
+
+.players-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+}
+
+.player-card {
+    min-height: 150px;
+
+    border: 1px solid var(--border);
+
+    background: var(--white);
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    transition: .25s;
+}
+
+.player-card:hover {
+    background: var(--yellow);
+
+    border-color: var(--black);
+
+    transform: translateY(-3px);
+}
+
+.card-icon {
+    font-size: 48px;
+}
+
+.player-info {
+    display: flex;
+
+    flex-direction: column;
+
+    text-align: right;
+
+    gap: 5px;
+}
+
+.player-info span {
+    font-family: "Space Mono", monospace;
+
+    font-size: 9px;
+}
+
+.player-info strong {
+    font-size: 20px;
+}
+
+
+/* =========================================
+   IA
+========================================= */
+
+.ai-section {
+    padding: 100px 8vw;
+
+    background: #e9e9e4;
+}
+
+.ai-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-bottom: 45px;
+}
+
+.ai-header h2 {
+    margin-top: 20px;
+
+    font-size: clamp(60px, 8vw, 105px);
+
+    line-height: .82;
+
+    letter-spacing: -.07em;
+}
+
+.online-status {
+    border: 1px solid var(--border);
+
+    padding: 10px 12px;
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 9px;
+
+    background: var(--white);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.online-status span {
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #39a844;
+}
+
+
+/* =========================================
+   CHAT
+========================================= */
+
+.chat {
+    width: 100%;
+
+    min-height: 350px;
+
+    max-height: 550px;
+
+    overflow-y: auto;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    padding: 30px;
+
+    scroll-behavior: smooth;
+}
+
+
+/* =========================================
+   MENSAGEM
+========================================= */
+
+.message {
+    display: flex;
+
+    gap: 14px;
+
+    margin-bottom: 25px;
+
+    max-width: 850px;
+
+    animation: mensagemEntrando .25s ease;
+}
+
+@keyframes mensagemEntrando {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+.message-icon {
+    flex-shrink: 0;
+
+    width: 38px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid var(--black);
+
+    background: var(--yellow);
+}
+
+.message-content {
+    padding-top: 2px;
+}
+
+.message-name {
+    font-family: "Space Mono", monospace;
+
+    font-size: 9px;
+
+    font-weight: bold;
+}
+
+.message-content p {
+    margin-top: 8px;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+
+    white-space: pre-wrap;
+}
+
+
+/* USUÁRIO */
+
+.user-message {
+    margin-left: auto;
+
+    flex-direction: row-reverse;
+}
+
+.user-message .message-icon {
+    background: var(--black);
+
+    color: white;
+}
+
+.user-message .message-content {
+    text-align: right;
+}
+
+
+/* =========================================
+   FORMULÁRIO
+========================================= */
+
+.chat-form {
+    display: flex;
+
+    margin-top: 12px;
+
+    border: 1px solid var(--black);
+
+    background: var(--white);
+}
+
+.chat-form input {
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    padding: 20px;
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 11px;
+}
+
+.chat-form button {
+    width: 65px;
+
+    border: none;
+
+    border-left: 1px solid var(--black);
+
+    background: var(--yellow);
+
+    cursor: pointer;
+
+    font-size: 22px;
+
+    transition: .2s;
+}
+
+.chat-form button:hover {
+    background: #ffdf00;
+}
+
+.chat-form button:disabled {
+    opacity: .5;
+
+    cursor: wait;
+}
+
+
+/* =========================================
+   SUGESTÕES
+========================================= */
+
+.suggestions {
+    display: flex;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+
+    margin-top: 12px;
+}
+
+.suggestions button {
+    background: transparent;
+
+    border: 1px solid #c5c5bd;
+
+    padding: 10px 12px;
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 8px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.suggestions button:hover {
+    background: var(--yellow);
+
+    border-color: var(--black);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    min-height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 5vw;
+
+    border-top: 1px solid var(--border);
+
+    font-family: "Space Mono", monospace;
+
+    font-size: 8px;
+
+    color: var(--gray);
+}
+
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+
+@media (max-width: 850px) {
+
+    .header {
+        padding: 15px 20px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .navigation {
+        gap: 18px;
+
+        flex-wrap: wrap;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        padding: 70px 25px;
+    }
+
+    .hero-art {
+        justify-content: flex-start;
+    }
+
+    .quote-section {
+        grid-template-columns: 1fr;
+
+        padding: 70px 25px;
+    }
+
+    .history-section,
+    .players-section,
+    .ai-section {
+        padding: 70px 25px;
+    }
+
+    .history-content {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .players-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .ai-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+    }
+
+    .footer {
+        padding: 20px 25px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 8px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .hero h1 {
+        font-size: 60px;
+    }
+
+    .yellow-card {
+        width: 230px;
+
+        height: 320px;
+    }
+
+    .tiger {
+        font-size: 75px;
+    }
+
+    .history-title h2 {
+        font-size: 52px;
+    }
+
+    .ai-header h2 {
+        font-size: 58px;
+    }
+
+    .chat {
+        padding: 18px;
+
+        min-height: 320px;
+    }
+
+    .chat-form input {
+        padding: 15px;
+
+        min-width: 0;
+    }
+
+    .chat-form button {
+        width: 52px;
+
+        flex-shrink: 0;
+    }
+
+}
