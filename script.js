@@ -22,6 +22,13 @@ const sendButton =
 
 
 // =========================================
+// CONTROLE DA PRIMEIRA PERGUNTA
+// =========================================
+
+let primeiraPergunta = true;
+
+
+// =========================================
 // ADICIONAR MENSAGEM
 // =========================================
 
@@ -109,7 +116,8 @@ async function perguntarIA(pergunta) {
                 },
 
                 body: JSON.stringify({
-                    message: pergunta
+                    message: pergunta,
+                    primeiraPergunta: primeiraPergunta
                 })
             }
         );
@@ -184,8 +192,6 @@ async function enviarPergunta(pergunta) {
         pergunta.trim();
 
 
-    // Não envia vazio
-
     if (!pergunta) {
         return;
     }
@@ -200,8 +206,6 @@ async function enviarPergunta(pergunta) {
         pergunta
     );
 
-
-    // Limpar input
 
     input.value = "";
 
@@ -230,19 +234,11 @@ async function enviarPergunta(pergunta) {
 
     try {
 
-        // =================================
-        // CONSULTAR BERNÔ IA
-        // =================================
-
         const resposta =
             await perguntarIA(
                 pergunta
             );
 
-
-        // =================================
-        // MOSTRAR RESPOSTA
-        // =================================
 
         const paragraph =
             loading.querySelector("p");
@@ -250,6 +246,12 @@ async function enviarPergunta(pergunta) {
 
         paragraph.textContent =
             resposta;
+
+
+        // Depois da primeira resposta com sucesso,
+        // não se apresenta mais.
+
+        primeiraPergunta = false;
 
     }
 
@@ -268,10 +270,6 @@ async function enviarPergunta(pergunta) {
         const erro =
             error.message.toLowerCase();
 
-
-        // =================================
-        // MENSAGENS DE ERRO
-        // =================================
 
         if (
             erro.includes("ollama") &&
@@ -336,10 +334,6 @@ async function enviarPergunta(pergunta) {
     }
 
     finally {
-
-        // =================================
-        // LIBERAR FORMULÁRIO
-        // =================================
 
         input.disabled = false;
 
@@ -425,7 +419,7 @@ input.addEventListener(
 
 
 // =========================================
-// TESTE INICIAL
+// LOGS
 // =========================================
 
 console.log(
