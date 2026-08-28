@@ -115,9 +115,6 @@ async function perguntarIA(pergunta) {
         );
 
 
-    // Lemos primeiro como texto para conseguir
-    // identificar erros da Netlify Function.
-
     const respostaBruta =
         await response.text();
 
@@ -141,6 +138,7 @@ async function perguntarIA(pergunta) {
             respostaBruta
         );
 
+
         throw new Error(
             "A função da IA retornou uma resposta inválida."
         );
@@ -148,7 +146,7 @@ async function perguntarIA(pergunta) {
 
 
     // =====================================
-    // ERRO DA FUNCTION / OLLAMA / NGROK
+    // ERRO DA FUNCTION / IA
     // =====================================
 
     if (!response.ok) {
@@ -203,7 +201,7 @@ async function enviarPergunta(pergunta) {
     );
 
 
-    // Limpar campo
+    // Limpar input
 
     input.value = "";
 
@@ -272,7 +270,7 @@ async function enviarPergunta(pergunta) {
 
 
         // =================================
-        // ERROS MAIS AMIGÁVEIS
+        // MENSAGENS DE ERRO
         // =================================
 
         if (
@@ -323,8 +321,7 @@ async function enviarPergunta(pergunta) {
         ) {
 
             paragraph.textContent =
-                "Não consegui acessar a função do Bernô IA no Netlify. " +
-                "Verifique se a pasta netlify/functions foi publicada corretamente.";
+                "Não consegui acessar a função do Bernô IA no Netlify.";
 
         }
 
@@ -428,7 +425,7 @@ input.addEventListener(
 
 
 // =========================================
-// LOGS
+// TESTE INICIAL
 // =========================================
 
 console.log(
